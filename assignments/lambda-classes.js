@@ -35,8 +35,8 @@ class Students extends Person {
         this.favSubjects = attributes.favSubjects; 
     }
     listsSubjects(favSubjects){
-        for(let i=0; i<favSubjects.length; i++) {
-            console.log(favSubjects[i]);
+        for(let i=0; i<this.favSubjects.length; i++) {
+            console.log(this.favSubjects[i]);
         }
     }
     PRAssignment(subject){
@@ -130,7 +130,7 @@ console.log(kat.standUp('WebPT6'));
 
 console.log(rasha.PRAssignment('JavaScript-IV'));
 console.log(sami.sprintChallenge('JavaScript Fundamentals'));
-rasha.listsSubjects(rasha.favSubjects);
+rasha.listsSubjects();
 
 console.log(rami.catchPhrase);
 console.log(bilal.demo('React'));
