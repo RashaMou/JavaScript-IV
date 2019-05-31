@@ -25,6 +25,9 @@ class Instructors extends Person {
     grade(student, subject){
         return `${student.name} recieves a perfect score on ${subject}`;
     }
+    gradeAssignment(student) {
+        return (student.grade) - (Math.floor(Math.random() * 15) + 1);
+    }
 }
 
 class Students extends Person {
@@ -32,7 +35,8 @@ class Students extends Person {
         super(attributes);
         this. previousBackground = attributes.previousBackground;
         this.className = attributes.className;
-        this.favSubjects = attributes.favSubjects; 
+        this.favSubjects = attributes.favSubjects;
+        this.grade = attributes.grade; 
     }
     listsSubjects(favSubjects){
         for(let i=0; i<this.favSubjects.length; i++) {
@@ -45,6 +49,14 @@ class Students extends Person {
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
+    graduate() {
+        if (this.grade >= 70){
+            return `${this.name} graduates!`
+        }
+        else {
+            return `${this.name} fails :(`
+        }
+    }
 }
 
 class ProjectManagers extends Instructors {
@@ -56,8 +68,8 @@ class ProjectManagers extends Instructors {
     standUp(slackChannel) {
         return `${this.name} announces to ${slackChannel}, @channel standy times!​​​​​`
     }
-    debugsCode(Students, subject){
-        return `${this.name} debugs ${Students.name}'s code on ${subject}`;
+    debugsCode(student, subject){
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
@@ -68,8 +80,9 @@ const rasha = new Students({
     location: 'Philadelphia',
     gender: 'Female',
     previousBackground: 'tech support',
-    className: 'WebPT6',
-    favSubjects: ['HTML', 'CSS', 'JS']
+    className: 'WebPT7',
+    favSubjects: ['HTML', 'CSS', 'JS'],
+    grade: 75
 });
 
 const sami = new Students({
@@ -126,7 +139,7 @@ const maya = new ProjectManagers ({
 })
 
 console.log(maya.debugsCode(rasha, 'CSS'));
-console.log(kat.standUp('WebPT6'));
+console.log(kat.standUp('WebPT7'));
 
 console.log(rasha.PRAssignment('JavaScript-IV'));
 console.log(sami.sprintChallenge('JavaScript Fundamentals'));
@@ -135,6 +148,8 @@ rasha.listsSubjects();
 console.log(rami.catchPhrase);
 console.log(bilal.demo('React'));
 console.log(rami.grade(rasha, 'JavaScript'));
+console.log(bilal.gradeAssignment(rasha));
+console.log(rasha.graduate());
 
 
 
