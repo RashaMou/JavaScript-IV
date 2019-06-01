@@ -7,7 +7,6 @@ Prototype Refactor
 2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
 
 */
-
   
 class GameObject {
     constructor(gameDetails) {
@@ -28,6 +27,7 @@ class GameObject {
     * should inherit destroy() from GameObject's prototype
   */
 
+
   class CharacterStats extends GameObject {
     constructor(stats) {
         super(stats);
@@ -47,7 +47,7 @@ class GameObject {
     * should inherit destroy() from GameObject through CharacterStats
     * should inherit takeDamage() from CharacterStats
   */
-  
+
   class Humanoid extends CharacterStats {
       constructor(humanoidAttributes) {
         super(humanoidAttributes);
@@ -59,7 +59,6 @@ class GameObject {
         return `${this.name} offers a greeting in ${this.language}`
       }
   }
-  
    
   /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
